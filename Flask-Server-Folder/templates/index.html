@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<center>
+    <div class="centered">
+        <p><b>Upload an image to predict its class</b></p>
+        <div class="upload-form">
+          <form action = "/uploader" method = "POST" enctype = "multipart/form-data">
+            <input type = "file" name = "file" />
+            <input type = "submit"/>
+          </form>
+        </div>
+ </div>
+</center> 
+{% endblock %}

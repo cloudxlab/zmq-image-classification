@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="centered">
+    <div class="row">
+        <div class="col-md-5"> 
+            <div class="image-container">
+                <figure>
+                  <img src="/static/uploads/{{display_image}}" style="width:400px;height:250px;">
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <p style="color:red"> {{predictions}}</p>
+    </div>
+
+    </br>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="upload-form">
+                <p><b>Upload another?</b></p>
+                <form action = "/uploader" method = "POST" 
+                          enctype = "multipart/form-data">
+                    <input type = "file" name = "file" />
+                    <input type = "submit"/>
+                </form>
+            </div>      
+        </div>
+    </div>
+</div>
+{% endblock %}
