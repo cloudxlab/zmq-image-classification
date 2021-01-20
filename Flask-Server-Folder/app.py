@@ -34,7 +34,7 @@ def upload_file():
         socket = context.socket(zmq.DEALER)
         _rid = "{}".format(str(uuid.uuid4()))
         socket.setsockopt(zmq.IDENTITY, _rid)
-        socket.connect('tcp://localhost:5576')
+        socket.connect('tcp://model-server:5576')
         poll = zmq.Poller()
         poll.register(socket, zmq.POLLIN)
         obj = socket.send_json({"payload": img_str, "_rid": _rid})

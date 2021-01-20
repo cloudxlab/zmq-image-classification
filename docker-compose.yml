@@ -1,6 +1,6 @@
 version: '3'
 services:
-    flask:
+    flask-server:
         tty: true # Terminal
         # We are defining the custom Dockerfile
         build:
@@ -13,7 +13,7 @@ services:
         volumes:
             # Map local-machine-folder:container-folder
             - ./Flask-Server-Folder:/app/flask-server
-    model:
+    model-server:
         tty: true # Terminal
         # We are defining the custom Dockerfile
         build:
