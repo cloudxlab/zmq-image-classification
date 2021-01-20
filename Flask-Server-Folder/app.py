@@ -44,10 +44,10 @@ def upload_file():
             sockets = dict(poll.poll(1000))
             if socket in sockets:
                 if sockets[socket] == zmq.POLLIN:
-                    result_dict = socket.recv_json()                    
+                    result_dict = socket.recv_json()
                     predictions = result_dict['preds']
-                    received_reply = True                    
-                    return render_template("upload.html", predictions=predictions, display_image=f.filename) 
+                    received_reply = True
+                    return render_template("upload.html", predictions=predictions, display_image=f.filename)
 
         socket.close()
         context.term()

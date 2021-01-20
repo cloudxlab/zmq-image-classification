@@ -1,0 +1,28 @@
+version: '3'
+services:
+    flask:
+        tty: true # Terminal
+        # We are defining the custom Dockerfile
+        build:
+            context: ./Flask-Server-Folder
+            dockerfile: Dockerfile
+        # Map local machine's 8000 port to container's port 4114
+        ports:
+            - "8000:4114"
+        # Volumes
+        volumes:
+            # Map local-machine-folder:container-folder
+            - ./Flask-Server-Folder:/app/flask-server
+    model:
+        tty: true # Terminal
+        # We are defining the custom Dockerfile
+        build:
+            context: ./Model-Server-Folder
+            dockerfile: Dockerfile
+        # Map local machine's 8000 port to container's port 3000
+        ports:
+            - "5576:5576"
+        # Volumes
+        volumes:
+            # Map local-machine-folder:container-folder
+            - ./Model-Server-Folder:/app/model-server
